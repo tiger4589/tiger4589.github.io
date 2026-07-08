@@ -1,3 +1,9 @@
+---
+layout: default
+title: About
+permalink: /about
+---
+
 # About Me
 
 Hi! I'm **Paul Karam**, a .NET consultant, AI trainer, and mentor with over **10 years of professional experience** building software.
