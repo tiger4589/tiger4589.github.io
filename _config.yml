@@ -67,3 +67,19 @@ navigation:
 #   - vendor/ruby/
 
 google_analytics: G-CF2QZBNZNR
+
+profile_image: /assets/profile_pic.jpg
+
+social_links:
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/paul-karam-b10673123/
+    icon: linkedin
+  - name: X
+    url: https://x.com/tiger45_
+    icon: x
+  - name: Instagram
+    url: https://www.instagram.com/tiger45_/
+    icon: instagram
+  - name: GitHub
+    url: https://github.com/tiger4589
+    icon: github

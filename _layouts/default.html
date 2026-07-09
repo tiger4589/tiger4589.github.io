@@ -26,6 +26,31 @@
 
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
 
+        {% if site.profile_image or site.social_links %}
+          <div class="profile-card">
+            {% if site.profile_image %}
+              <img
+                class="profile-card__image"
+                src="{{ site.profile_image | relative_url }}"
+                alt="Portrait of {{ site.author.name | default: site.title }}"
+              >
+            {% endif %}
+
+            {% if site.social_links %}
+              <ul class="social-links" aria-label="Social links">
+                {% for social in site.social_links %}
+                  <li>
+                    <a href="{{ social.url }}" class="social-link" target="_blank" rel="noopener noreferrer">
+                      {% include social-icon.html icon=social.icon %}
+                      <span>{{ social.name }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
+
         <section id="downloads">
           {% if site.show_downloads %}
             <a href="{{ site.github.zip_url }}" class="btn">Download as .zip</a>
