@@ -1,9 +1,43 @@
+---
+---
+
 @import "{{ site.theme }}";
+
+.site-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.site-header__main {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.site-header__aside {
+  flex: 0 0 auto;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    flex-direction: column;
+  }
+
+  .site-header__aside {
+    width: 100%;
+  }
+}
 
 /* Profile card */
 
 .profile-card {
-  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
