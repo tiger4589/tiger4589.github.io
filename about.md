@@ -14,6 +14,8 @@ Today, I work across the .NET ecosystem, helping design and build scalable, main
 
 Most of my experience revolves around technologies such as **C#**, **.NET**, **ASP.NET Core**, **Azure**, **SQL Server**, **PostgreSQL**, **Kubernetes**, **Azure Service Bus**, and the surrounding ecosystem that makes modern .NET development possible.
 
+Outside the .Net world and the 0s and 1s, I am a husband, and father of a beautiful daughter! Spending quality time with the family is an important part of my life.
+
 ## Why This Blog?
 
 Over the years, I've learned an incredible amount from the developer community. Whether it was through blog posts, open-source projects, conference talks, or discussions with other engineers, countless people have helped shape the developer I am today.
