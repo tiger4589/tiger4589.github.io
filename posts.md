@@ -12,10 +12,14 @@ permalink: /posts/
 
 ## {{ year.name }}
 
-{% for post in year.items %}
+{% assign monthly = year.items | group_by_exp: "post", "post.date | date: '%B'" %}
+{% for month in monthly %}
 
-- {{ post.date | date: "%b %d" }} –
-  [{{ post.title }}]({{ post.url | relative_url }})
+### {{ month.name }}
+
+{% for post in month.items %}
+
+- {{ post.date | date: "%b %d" }} – [{{ post.title }}]({{ post.url | relative_url }})
   {% endfor %}
-
-{% endfor %}
+  {% endfor %}
+  {% endfor %}
