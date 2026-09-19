@@ -10,6 +10,7 @@ remote_theme: pages-themes/hacker@v0.2.0
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  - jekyll-sitemap
 author:
   name: Paul Karam
 excerpt_separator: <!--more-->
@@ -50,3 +51,5 @@ emails:
     address: paulkaram1989@gmail.com
   - name: Work Email
     address: paul.karam@allphi.eu
+
+google_verification: YVmzXw8EGSjv7VX2_wAzU2mmg-GqaecAC6c0jiXhshk
