@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://tiger4589.github.io/sitemap.xml
-Sitemap: https://tiger4589.github.io/sitemap0.xml
