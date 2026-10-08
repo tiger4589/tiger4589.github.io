@@ -53,3 +53,6 @@ emails:
     address: paul.karam@allphi.eu
 
 google_verification: YVmzXw8EGSjv7VX2_wAzU2mmg-GqaecAC6c0jiXhshk
+
+include:
+  - .well-known
