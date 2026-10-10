@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Migrating a legacy .NET Core 3.1 app to .NET 10 with Claude Code"
-date: 2026-10-09
+date: 2026-10-10
 tags: ai claude-code agentic-development dotnet csharp legacy-migration domain-driven-design technical-debt
 ---
 
@@ -30,9 +30,9 @@ The initial code was very simple (.NET Core 3.1):
 - A web app project
 - A Discord console app project
 - A background service
-- A shared project - mostly services shared between the 3 applications to fetch data from the database.
+- A shared project: mostly services, shared between the 3 applications, to fetch data from the database.
 
-I wasn't looking for a clean architecture back then, just working code. It was supposed to be a small application, a proof of concept, developed by myself, hosted on my server. However, with time, I kept adding to it, and it accumulated so much technical debt that I kept postponing the rewrite. You probably had the same issues with side projects.
+I wasn't looking for a clean architecture back then, just working code. It was supposed to be a small application, a proof of concept, developed by me, hosted on my server. However, with time, I kept adding to it, and it accumulated so much technical debt that I kept postponing the rewrite. You have probably had the same issues with side projects.
 
 ## How it's all connected
 
@@ -40,12 +40,12 @@ I wasn't looking for a clean architecture back then, just working code. It was s
 
 Users only interacted with KoC, the web app and the Discord bot.  
 KoC called the API after each action to register it.  
-The background service goes through the database, checks for missing action ids, and fetches them from KoC to record them.  
-As you can see, all the different applications shared the same database, and also had a direct connection to it.
+The background service went through the database, checked for missing action ids, and fetched them from KoC to record them.  
+As you can see, all the different applications shared the same database, and each had a direct connection to it.
 
 ## Problems
 
-I haven't added any documentation. The knowledge was all in-memory, pun intended.  
+I never wrote any documentation. The knowledge was all in-memory, pun intended.  
 Introducing changes was not simple.  
 All projects calling the database independently put stress on SQL Server.  
 There were many hardcoded values, and configuration values that had to be updated in several places.  
@@ -55,60 +55,60 @@ Yes, it became a disaster after a while.
 
 ## It's finally time
 
-After all these years, it was time to finally migrate the project. Given that AI can do the heavy lifting, I decided to give it a try. I'll share below how I started, what I've learned, and how you can apply the same strategy to migrate such projects that have no documentations or tests and must keep the same behavior.
+After all these years, it was time to finally migrate the project. Given that AI can do the heavy lifting, I decided to give it a try. I'll share below how I started, what I've learned, and how you can apply the same strategy to migrate similar projects that have no documentation or tests and must keep the same behavior.
 
 # Agentic Dev Migration
 
 ## Tools
 
-I have used Claude Code, and the only model I've tested this with is Sonnet 5.5.
+I used Claude Code, and Sonnet 5.5 is the only model I've tested this with.
 
 ## Beginning
 
 ### First step
 
-The first thing I wanted to test out was the ability of Claude to understand the code and the behavior of the whole repository. So, my first prompt was a general one:
+The first thing I wanted to test out was Claude's ability to understand the code and the behavior of the whole repository. So, my first prompt was a general one:
 
 ```text
 Scan all the repo, and tell me what you understand from it.
 ```
 
-Claude was able to identify the projects, how the data flows between them, and even immediately flag some small issues such as: configuration committed, stale CI that I haven't used, the reliability of my in-memory queue I designed and some dead code that I've left there - because someday, I'll fix it.
+Claude was able to identify the projects, how the data flows between them, and even immediately flag some small issues such as: committed configuration, a stale CI pipeline that I no longer use, the reliability of the in-memory queue I designed, and some dead code that I left there because someday, I'll fix it.
 
 ### Explaining the goal
 
 After making sure that Claude was able to scan the repo correctly, it was time to explain the goal, give the context, and ask for a plan.
 
-The second prompt was used to establish this. I've explained the goal:
+I used the second prompt to establish this. I explained the goal:
 
-- Migrating to .NET 10
-- Use clean architecture with domain driven design.
-- All the actions that happen in-game that we need to store.
+- Migrate to .NET 10.
+- Use clean architecture with domain-driven design.
+- Store all the actions that happen in-game.
 - The current behavior will change a little bit: KoC no longer calls the API.
-- The discord bot should no longer have access to the database.
+- The Discord bot should no longer have access to the database.
 - The web application should no longer have access to the database.
 - The API will be the main entry point for these two applications.
 - The background service will be split into workers, with each worker fetching data for one action.
 
 I also explained where I'd like to deploy all of that and what kind of server I had.  
-I also suggested the plan to start migrating one action per time.
+I also suggested a plan to migrate one action at a time.
 
-And since this was my first time working with Claude, I also asked it to generate the files it needs to reduce prompt repetitions, save decisions, to keep track of status so each new session can pick up where the previous one stopped.
+And since this was my first time working with Claude, I also asked it to generate the files it needs to reduce prompt repetition, save decisions, and keep track of status, so each new session can pick up where the previous one stopped.
 
-I also asked it to come up with the plan given everything I explained, to share it with me before any new files are generated.
+I also asked it to come up with a plan based on everything I explained, and to share it with me before generating any new files.
 
 After refining the plan, Claude started working. It created multiple files:
 
 - CLAUDE.md
 - settings.json
 - guard-legacy.sh (hook to prevent any agent from modifying the legacy code)
-- All files related to decisions I took, the migration status, the architecture, the conventions, the fetching workflow, the configuration, the endpoint to use, the migration playbook, and a legacy map.
-- Created 6 different skills: migrate-action, migrate-ui-page, migrate-bot-command, scaffold-foundation, verify-v2, and build-staff-app.
-- Added two agents: legacy-inventory, and a ddd-reviewer.
+- All the files related to the decisions I made, the migration status, the architecture, the conventions, the fetching workflow, the configuration, the endpoints to use, the migration playbook, and a legacy map.
+- 6 skills: migrate-action, migrate-ui-page, migrate-bot-command, scaffold-foundation, verify-v2, and build-staff-app.
+- 2 agents: legacy-inventory and ddd-reviewer.
 
-To explain a little bit some of the files:
+A closer look at two of these files:
 
-CLAUDE.md is added to the context in each new session. It contains a short description, the repo layout, the trigger phrases (prompts), hard rules, the tech stack, and most importantly it contains a session start protocol:
+CLAUDE.md is loaded into the context at the start of every session. It contains a short description, the repo layout, the trigger phrases (prompts), the hard rules, the tech stack, and, most importantly, a session start protocol:
 
 ```markdown
 ## Session start protocol (do this first, every session)
@@ -118,7 +118,7 @@ CLAUDE.md is added to the context in each new session. It contains a short descr
 3. Don't ask the user to repeat context that is in these files.
 ```
 
-The decisions.md file contained all the decisions that I took, and the decisions that I let Claude take, for example:
+The decisions.md file contained all the decisions that I made, and the decisions that I let Claude make, for example:
 
 ```markdown
 ## Decided by the product owner (2026-10-05)
@@ -145,11 +145,11 @@ The decisions.md file contained all the decisions that I took, and the decisions
 
 ### Developers are lazy
 
-Yes, I am another lazy developer! I asked Claude after the first two prompts to also introduce a `UserReadMe` file. I asked it to include the prompts I would use, in playbook order, so that any session can pick up the next step.
+Yes, I am another lazy developer! After the first two prompts, I also asked Claude to introduce a `UserReadMe` file. I asked it to include the prompts I would use, in playbook order, so that any session can pick up the next step.
 
 ### Prompts
 
-All what I had to do after this was pick the prompt from that file, copy it, and paste it into Claude.
+All I had to do after this was pick the prompt from that file, copy it, and paste it into Claude.
 
 For example, one of my prompts was:
 
@@ -157,56 +157,64 @@ For example, one of my prompts was:
 start migrating attacks
 ```
 
-And this prompt was mapped to a skill by the trigger table in CLAUDE.md
+That prompt was mapped to a skill by the trigger table in CLAUDE.md.
 
 ## Migration Process
 
 ### Sessions
 
-I've started using the prompts Claude prepared, step by step. Each session took roughly between 10 and 30 minutes to end.
+I started using the prompts Claude prepared, step by step. Each session took roughly 10 to 30 minutes.
 
 ### Verification Process
 
-After each step, I've read the summary that Claude generated. If there's anything that didn't seem correct, I'd signal it for fixing.
+After each step, I read the summary that Claude generated. If anything didn't seem correct, I flagged it to be fixed.
 
-When it comes to code verification: the code review agent was making sure that the architecture is correctly implemented. The infrastructure tests made sure that there's no forbidden references. Unit and integration tests made sure the logic is correct. What I verified was my domain business logic. Is it doing what it was doing before? Is there any changes? On top of that, I have tested all functionalities in the web app, the discord bot, and the new staff web app.
+When it comes to code verification: the code review agent made sure that the architecture was correctly implemented. The infrastructure tests made sure that there were no forbidden references. Unit and integration tests made sure the logic was correct. What I verified was my domain business logic. Is it doing what it was doing before? Are there any changes? On top of that, I tested all the functionality in the web app, the Discord bot, and the new staff web app.
 
-Once all my verifications are done, I moved to the next prompt.
+Once all my verifications were done, I moved on to the next prompt.
+
+### What went wrong
+
+Everything was green and some of it still didn't work. The Previous/Next buttons on the `/top` commands did nothing in Discord. All the tests passed, but Discord.Net had added the command group name in front of every button id, so no button matched its handler. I only found out because I tried the bot myself. Claude then did the right thing: it first wrote a test that reproduced the failure (all 14 button ids failed), and then fixed it.
+
+A worse problem was silent omissions. When I asked Claude to compare the features in the legacy system and the new one, it found nine differences I had never decided on, such as a missing page and charts that had quietly become tables. A second pass found 23 more. One of them was a page that KoC's own site depends on. Every slice had passed its own tests, so nobody had noticed.
+
+My conclusion: tests written by the same AI tell you the code does what the AI thought it should do. They don't tell you it does what the old system did. Compare against the legacy system, and test the real thing yourself.
 
 ## Migration End
 
 ### Numbers
 
 The full migration took around 31 sessions.  
-Git had +126,162 lines added, and nothing deleted. These figures were measured before the fine tuning.  
-The total number of generated files was 1,001, including the agents, hooks, skills, settings, workflow and documentations.  
-All of this took 5 days, only working at night.
+The git diff showed +126,162 lines added and nothing deleted. These figures were measured before the fine-tuning.  
+The total number of generated files was 1,001, including the agents, hooks, skills, settings, workflows and documentation.  
+All of this took 5 days, working only at night.
 
 ### New Design
 
 ![A diagram showing how the new system design looks](/assets/ai-migration/new-arch.png)
 
 The new design removed most of the problems we faced before.  
-The game servers will never interact with my server anymore, no more lag in case of downtime.  
-The new workers fetch data from KoC and inserts it in the database.
-Write through the API are limited to staff operations, which I expect to use once every 1-2 months.  
+The game servers no longer interact with my server, so there's no more lag in case of downtime.  
+The new workers fetch data from KoC and insert it into the database.  
+Writes through the API are limited to staff operations, which I expect to use once every one to two months.  
 The game rules the bot needs for its calculations are now fetched from KoC, so they're no longer hardcoded.  
 A new staff web app was added, making it easier to manage the statistics platform.
 
 ## What came next
 
-### Fine tuning
+### fine-tuning
 
-After finalizing the initial migration plan, I started fine tuning some of the functionalities that were migrated. These sessions were much quicker due to the context and documentations Claude had created during the migration.
+After finalizing the initial migration plan, I started fine-tuning some of the functionalities that were migrated. These sessions were much quicker due to the context and documentation Claude had created during the migration.
 
-One example was the ability to start/stop worker via the staff app. I previously had to do that manually directly on the server.
+One example was the ability to start and stop workers from the staff app. I previously had to do that manually, directly on the server.
 
 ### New functionalities
 
 I also started adding new features for both the staff and the players.
-Any idea that I had in mind and that I was delaying over and over again was now added.
+Any idea that I had in mind and kept delaying over and over again was finally added.
 
-One example was the ability to reset all the statistics via the staff app.
+One example was the ability to reset all the statistics from the staff app.
 
 ## Next steps?
 
@@ -216,15 +224,15 @@ At the moment, the new system is running alongside the old system. Both staff an
 
 ### Numbers comparison
 
-Besides the testing itself, we need to make sure that all the statistics produced are equal to what we currently have. Even though the code compiles, and the applications are running, we'll need to double check the output. This is important, as the legacy code didn't have any written tests. All the new tests are written by the same AI.
+Besides the testing itself, we need to make sure that all the statistics produced are equal to what we currently have. Even though the code compiles and the applications are running, we'll need to double-check the output. This is important, as the legacy code had no written tests. All the new tests were written by the same AI.
 
 ### Full documentation
 
-A full technical documentation will be generated to have a clean overview of how everything works together. This documentation will be targeting humans more than just Claude itself.
+Full technical documentation will be generated to give a clean overview of how everything works together. This documentation will target humans more than just Claude itself.
 
 ### Switch over
 
-Once everything is validated we'll have the green light to switch to the new system. The current legacy system will be retired, and the new system will take over.
+Once everything is validated, we'll have the green light to switch to the new system. The current legacy system will be retired, and the new system will take over.
 
 The estimated numbers after deleting the old system would be:
 
@@ -261,25 +269,25 @@ If you work with AI tools, think about what a new team member would need on thei
 
 ## Verification is non-negotiable
 
-Reading 100,000+ lines of code in five days is impossible. Validating all these changes manually is even harder. However, you still need to verify the output. Adding guardrails, tests, code-review agents, and extra validation steps will certainly help. After all, whatever you ship will have your name on it, and you're responsible for it. In my case, the easiest way to verify the output was comparing the calculated numbers in the legacy system vs. the calculated numbers in the new system.
+Reading 100,000+ lines of code in five days is impossible. Validating all these changes manually is even harder. However, you still need to verify the output. Adding guardrails, tests, code-review agents, and extra validation steps will certainly help. After all, whatever you ship will have your name on it, and you're responsible for it. In my case, the easiest way to verify the output was to compare the numbers calculated by the legacy system with those calculated by the new system.
 
 ## The code isn't _mine_ anymore
 
-This is one of the most important things that stuck with me. Even with all the spaghetti code I managed in the legacy system, which I am guilty of allowing it to get to that point, I was still able to navigate through it very easily. It lived in my head as much as in the IDE. I am responsible for the new code, and I have to maintain it, but the feeling towards it is not the same. I believe this is something that a lot of developers are facing. There's a really nice [post by David Whitney](https://davidwhitney.co.uk/blog/2026/02/17/existential_dread_and_the_end_of_programming/) that explains how I feel towards this.
+This is one of the most important things that stuck with me. Even with all the spaghetti code I managed in the legacy system, which I am guilty of allowing to get to that point, I was still able to navigate it very easily. It lived in my head as much as in the IDE. I am responsible for the new code, and I have to maintain it, but the feeling toward it is not the same. I believe this is something that many developers are facing. There's a really nice [post by David Whitney](https://davidwhitney.co.uk/blog/2026/02/17/existential_dread_and_the_end_of_programming/) that explains how I feel about this.
 
 # A reusable recipe
 
-If you have such a project, I advise you to follow these steps:
+If you have a similar project, I'd suggest following these steps:
 
-- Scan the repo: see what the AI can understand from your current repo.
-- Explain your goal: explain what's the target and what is expected.
-- Get a plan and confirm it: Don't just let the AI start working without a solid plan.
-- Generate docs, hooks and skills: related to the plan and the decisions you took.
-- Write prompts per step: to reduce the repeated prompts and re-explaining.
-- Verify per slice: verify what was the output after each step.
+- Scan the repo: see what the AI understands from your current repo.
+- Explain your goal: explain what the target is and what is expected.
+- Get a plan and confirm it: don't just let the AI start working without a solid plan.
+- Generate docs, hooks and skills that relate to the plan and the decisions you made.
+- Write prompts per step: to reduce repeated prompts and re-explaining.
+- Verify per slice: verify the output after each step.
 - Keep the context files updated.
 - Compare the output against the legacy system.
 
 # Final thoughts
 
-AI tools are really nice, functional, and do their job really well. However, we should still treat them as tools. We should not forget how models work, and how they might hallucinate stuff that we don't need or want. Treat AI as a tool rather than anything else. Don't be afraid of working with and adopting agentic development. The current evolution is going quickly, and it will probably keep on evolving. A software engineer with good fundamentals and extensive experience will be able to achieve much more with AI since they can set the rules and validate them along the way.
+AI tools can do a lot of the heavy lifting, but they are tools. We should still treat them as tools. We should not forget how models work, and how they might hallucinate things that we don't need or want. Don't be afraid of working with and adopting agentic development. The field is evolving quickly, and it will probably keep evolving. A software engineer with good fundamentals and extensive experience will be able to achieve much more with AI since they can set the rules and validate them along the way.
