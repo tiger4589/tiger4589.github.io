@@ -31,7 +31,7 @@ I've seen a lot of discussions and posts about what AI can do, and how it will r
 
 **AI isn't going anywhere, and software developers will have to adapt.**
 
-Yes, one person can now migrate small to huge applications alone, from one language to another, from a legacy code to a modern one, but understanding what is being delivered is still critical. Developers must verify behavior through tests, review security implications, understand operational risks, and check whether the solution meets the actual requirements or not. The future is never certain, but I don't see AI totally replacing software developers.
+Yes, one person can now migrate small to huge applications alone, from one language to another, from a legacy code to a modern one, but understanding what is being delivered is still critical. Developers must verify behavior through tests, review security implications, understand operational risks, and check whether the solution meets the actual requirements or not. The future is never certain, we can predict AI replacing developers, or the opposite, but that doesn't do us any good.
 
 # How to stay competitive in this field?
 
@@ -97,7 +97,7 @@ Personally: keep some pet projects around you, toying with them is fun. I love t
 
 Learning doesn't stop. I always give an example that we learn how to use our hands on a daily basis. Coding is a practice, just like anything else in the world.
 
-I personally like to read blogs, technical documentations, and watch some videos if I want a quicker summary. I wouldn't advise to ditch this and only use AI to learn. Remember AI has cut-off dates, and although it can visit the web to give you a summary, it might skip some important notes that can be useful. I've had that happen to me before.
+I personally like to read blogs, technical documentations, and watch some videos if I want a quicker summary. I wouldn't advise to ditch this and only use AI to learn. Remember AI has cut-off dates, and different tools have different knowledge and retrieval capabilities. Even a tool that can search the web can miss relevant information, misunderstand a source, or give inaccurate summary. I've had that happen to me before.
 
 Keep your sources close to you, and keep on learning from them. It will always be handy, no matter what.
 
