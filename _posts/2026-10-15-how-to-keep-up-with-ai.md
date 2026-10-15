@@ -7,7 +7,7 @@ tags:
 
 Software development has always been evolving, as long as I can remember. It constantly evolves, and it follows trends. These trends are usually for the better, and sometimes they don't survive the test of time and they get left behind.
 
-Currently, it's all about artificial intelligence (AI), agentic development, and everything related. But, how should we keep up? What does that mean for someone just starting his career? How should people who has been in this field for so long move forward?
+Currently, it's all about artificial intelligence (AI), agentic development, and everything related. But, how should we keep our skills in demand? What does that mean for someone just starting his career? How should people who has been in this field for so long move forward?
 
 The following article is my personal take in that matter. I'll share my honest feeling and how I think we should move forward.
 
@@ -29,17 +29,19 @@ Putting feeling aside, we still have a responsibility to deliver that software. 
 
 I've seen a lot of discussions and posts about what AI can do, and how it will replace software developers. I've also seen people skeptical about the whole thing, and are pretty sure that the bubble will burst soon. However, given the pace that AI is evolving in, and the level it is at the moment, I believe the truth lives between these two groups of people:
 
-**AI isn't going anywhere, but it also won't fully replace software developers.**
+**AI isn't going anywhere, and software developers will have to adapt.**
 
-Yes, one person can now migrate small to huge applications alone, from one language to another, from a legacy code to a modern one, but understanding what is being delivered is still critical.
+Yes, one person can now migrate small to huge applications alone, from one language to another, from a legacy code to a modern one, but understanding what is being delivered is still critical. Developers must verify behavior through tests, review security implications, understand operational risks, and check whether the solution meets the actual requirements or not. The future is never certain, but I don't see AI totally replacing software developers.
 
-# How to keep up?
+# How to stay competitive in this field?
 
-The following is completely my personal opinion, and how I see things moving forward. I might be completely correct, or completely wrong, and time will tell.
+The following is completely my personal opinion, and how I see things moving forward. I might be completely correct, or completely wrong, or in between, and time will tell.
+
+The way to avoid getting left behind isn't to chase every new tool. It's to develop the judgment to understand what these tools can do, where they fail, and how to use them without losing the skills that made us good engineers.
 
 ## Students and new graduates
 
-If you're currently studying, or recently got your degree, don't be afraid. The current job market is saturated, and hard to break-in, but you can overcome this.
+If you're currently studying, or recently got your degree, don't be afraid.
 
 As much as AI is good at delivering code, it's even more capable of explaining it. Writing code has never been quicker, but it should be understood.
 
@@ -48,6 +50,8 @@ Come up with your own ideas, projects, or tools to build, and do that manually f
 Landing a job won't just be answering the question "do you know how to use AI tool", it will be closer to "How would you manage an AI tool to deliver X, Y, and Z". Understanding the basics is what allows you to answer that.
 
 It's also important to study how to use those tools, don't get me wrong, but focus on answering the "why" questions, and you'll get there.
+
+**Note that even though AI can generate explanations, it might still be confidently wrong. Use AI to accelerate your learning, then verify what you've learned through documentations, experimentation, tests, and independent reasoning.**
 
 ## Juniors in the field
 
@@ -59,11 +63,17 @@ Ask as many questions as you need to more experienced developers in your team. Y
 
 These continuous questions and learning will slowly pave the path to become a more senior developer burdened with more knowledge.
 
+### Avoid this pitfall
+
+If, as a developer, you keep on delegating tasks that you don't understand to the AI, you might become less capable of detecting incorrect output, debugging the behavior, or making good decisions when the tools fail.
+
+The important balance is not to avoid AI-generated solutions. It's to make sure that as developer, you can explain, test, and take responsibility for the solution.
+
 ## Mid-Level Developers
 
 You should already be able to deliver features independently, troubleshoot problems, and write maintainable code.
 
-If your team is dependent on AI, it's time to start taking more ownership of significant technical work. Given the experience you already built up, it should be easier to work alongside these tools, and take the right decisions. Don't get complacent though, this doesn't mean that you should only rely on AI tools from now on. Learning never ends. Gather more experience, specially in architecture and system design.
+If your team is dependent on AI, it's time to start taking more ownership of significant technical work. Given the experience you already built up, it should be easier to work alongside these tools, and take the right decisions. Don't get complacent though, this doesn't mean that you should only rely on AI tools from now on. Learning never ends. Gather more experience, specially in architecture and system design. Here's a fun experience that you can do: take an existing service in your codebase, map the dependencies, and ask a senior engineer what's the decision behind the current architecture. Then use AI to explore alternatives and compare those suggestions against your actual requirements.
 
 And regardless if you're currently working with AI or not, it's the perfect time to start handling more complex problems, try to take architectural decisions alongside your senior colleagues, and learn from those decisions.
 
@@ -90,6 +100,13 @@ Learning doesn't stop. I always give an example that we learn how to use our han
 I personally like to read blogs, technical documentations, and watch some videos if I want a quicker summary. I wouldn't advise to ditch this and only use AI to learn. Remember AI has cut-off dates, and although it can visit the web to give you a summary, it might skip some important notes that can be useful. I've had that happen to me before.
 
 Keep your sources close to you, and keep on learning from them. It will always be handy, no matter what.
+
+My personal learning loop:
+
+- I discover what's new and useful by following trusted sources instead of every announcement.
+- I experiment by choosing one development workflow or tool that helps me with a problem. I try it on a small task.
+- I evaluate by comparing the result to my normal approach, consider the quality, maintainability, and the effort needed.
+- I consolidate by recoding what worked, what failed, and what I've learned.
 
 ### How to decide what is worth learning?
 
