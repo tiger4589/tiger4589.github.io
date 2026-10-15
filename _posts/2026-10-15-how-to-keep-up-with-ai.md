@@ -61,17 +61,27 @@ These continuous questions and learning will slowly pave the path to become a mo
 
 ## Mid-Level Developers
 
-You should already be able to deliver features independently, troubleshoot problems, and write maintainable code. If your team isn't heavily dependent on AI at the moment, it's the perfect time to start handling more complex problems, try to take architectural decisions alongside your senior colleagues, and learn from those decisions.
+You should already be able to deliver features independently, troubleshoot problems, and write maintainable code.
 
 If your team is dependent on AI, it's time to start taking more ownership of significant technical work. Given the experience you already built up, it should be easier to work alongside these tools, and take the right decisions. Don't get complacent though, this doesn't mean that you should only rely on AI tools from now on. Learning never ends. Gather more experience, specially in architecture and system design.
+
+And regardless if you're currently working with AI or not, it's the perfect time to start handling more complex problems, try to take architectural decisions alongside your senior colleagues, and learn from those decisions.
+
+When AI can generate multiple possible implementations in minutes, the ability to recognize which one will remain maintainable for years to come becomes much more valuable.
 
 ## Seniors and more
 
 Given the way things are going, it's time to use all the experience you have to build software faster than ever! AI tools today have proven their worth and what you can do with them, and knowing how the software industry move, this is probably going to be on each job description.
 
-Don't be afraid to adapt. I don't think there will be less jobs. I predict at one point more jobs will emerge. There's too many ideas out there, and executing them is much easier now, but they still need experienced developers to maintain, and validate. They need experience to design, and to take the right decisions where it matters.
+Don't be afraid to adapt. AI make executing ideas and building software much easier now, but they still need experienced developers to maintain, and validate. They need experience to design, and to take the right decisions where it matters.
 
 If you haven't used these tools yet, go ahead, don't fall behind. Trust, but verify!
+
+### How do you preserve your engineering skills?
+
+Professionally: you can review generated code while waiting for some new sessions to end, discuss it with colleagues, and examine the architecture. If met with a bug, use your debugging skills before immediately delegating the problem to another agent. Write some tests that are off-limit for the AI and that they must be green. Being able to explain the system you've built with the AI is a good recipe.
+
+Personally: keep some pet projects around you, toying with them is fun. I love to write code, and while working on fun projects for myself, I still prefer to write as much as I can manually. Once I am happy with the initial architecture and design, I might delegate the work to the AI, instructing it to follow in my footsteps. This keeps me trained on reading the code and being able to follow it through.
 
 ## For everyone
 
@@ -81,6 +91,32 @@ I personally like to read blogs, technical documentations, and watch some videos
 
 Keep your sources close to you, and keep on learning from them. It will always be handy, no matter what.
 
+### How to decide what is worth learning?
+
+Learning something new is always nice and fun, but ask yourself: does it solve a real problem you have? This is coming from experience. Whenever I learn something, without actually applying it anywhere, I tend to forget it. Search for what you need at the moment, and tackle it. Another question worth asking: does it matter with the current hype cycle? If there's a change in your favorite language that is simply a synthetic sugar change, then maybe it's not that worth diving deep into it, but if there's a big update, that might contain some breaking changes, or a whole new way to manage memory, then it's probably worth checking it out.
+
+# What does experience mean?
+
+When AI does most of the implementations, what does experience mean? It isn't simply the ability to write code. It includes recognizing bad abstractions, choosing the appropriate trade-offs, understanding the consequences of decisions.
+
+Applying KISS (Keep it simple, stupid) and YAGNI (You aren't gonna need it) principles is still important. If your AI agent is building abstractions on top of abstractions that you know you wouldn't need, it's better to stop it. It will save you some tokens down the line, and it will allow you to easier understand the system you're building.
+
+If the AI agent decides to use a message broker where a simple HTTP call is sufficient, you have to step in. Knowing when to use what is very important, and choosing the right trade-off has a lot of benefit on how your system will behave once you ship it.
+
+If you need to choose between SignalR or SSE for real-time communication, then you need to understand the consequences of your choice: what are you gaining? What are you losing? What should you be aware of?
+
+This is why continuous learning is important, it will allow you to build the experience you need to be able to take those decisions and understand their trade-offs.
+
+# How to adapt without losing the fun of programming?
+
+I know that not all developers need to enjoy the same thing, or the same workflow. My advice is to do what you enjoy, and delegate the rest. Some might enjoy system designs, and others might still value writing code. Some might enjoy seeing the end product of an idea they have, and others might still prefer to build it slowly.
+
+This might not apply in your job, where you have to adapt as an organization, but it can be used on a personal level to still gain that satisfaction that might be lost.
+
+I personally don't like to get involved too much in front-end development, and I find it much more fulfilling to work on the back-end. I aim to do that on my personal projects as much as possible, and delegate the front-end stuff to AI tools.
+
 # Final thoughts
+
+Does AI mean giving up the satisfaction of creating something? Or does it mean finding satisfaction in different things? Like understanding a complex system, or delivering something that would have previously taken months?
 
 A mentor of mine wrote an article seven years ago. [The day when the software industry makes up its mind](https://adamtibi.com/archives/the-day-when-the-software-industry-makes-its-mind) and it still stands today. The only difference is that the pace of change is much quicker these days, and adapting is becoming heavier than ever, but it is necessary. Don't avoid what's inevitable, but treat it carefully and with open mind. Remember, by the end of the day, you're still responsible for what you're delivering, whether an AI wrote it or yourself.
