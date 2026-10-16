@@ -1,15 +1,15 @@
 ---
 layout: post
-title: ""
+title: "Growing as a Software Engineer in the Age of AI"
 date: 2026-10-16
-tags:
+tags: AI, Software Development, Career, Software Engineering, Continuous Learning, Developer Productivity
 ---
 
-Software development has been evolving for as long as I can remember. It evolves constantly, and it follows trends. Some trends improve the way we build software, while others don't stand the test of time and eventually fade away.
+Software development has been evolving for as long as I can remember, and it follows trends. Some trends improve the way we build software, while others don't stand the test of time and eventually fade away.
 
 Currently, it's all about artificial intelligence (AI), agentic development, and everything related. But how should we keep our skills in demand? What does that mean for someone just starting their career? How should people who have been in this field for a long time move forward?
 
-This article is my personal take on the subject. I'll share my honest feeling and how I think we should move forward.
+This article is my personal take on the subject. I'll share my honest feelings and how I think we should move forward.
 
 <!--more-->
 
@@ -19,11 +19,11 @@ This article is my personal take on the subject. I'll share my honest feeling an
 
 I recently shared an [AI migration story](https://tiger4589.github.io/2026/10/10/ai-migration-story.html), explaining how it went, what went wrong, and what I learned about using AI in real projects.
 
-One specific feeling stuck with me, which I also shared in that article, is: **The code isn't _mine_ anymore**. It felt that way because when I started coding, almost 20 years ago, I fell in love with it. The feeling of writing something that solved a problem had some kind of impact on me or those around me, and later on professionally, gave me a huge satisfaction.
+One specific feeling stuck with me, which I also shared in that article, is: **The code isn't _mine_ anymore**. It felt that way because when I started coding, almost 20 years ago, I fell in love with it. Writing something that solved a problem for me or the people around me, and later for clients, gave me huge satisfaction.
 
 When I use AI, that satisfaction isn't quite the same anymore. Yes, the end result is still the same. The output is a full application that you can probably ship to production after verification and validation. However, the process is no longer the same.
 
-Putting feelings aside, we still have a responsibility to deliver that software. It's our job at the end of the day. As software engineers, we have the bonus of good analytical skills, and we adapt easily to change. Adaptation ranges from understanding new businesses when we switch projects during our careers, to handling new requirements in the same project, to managing our pet projects on the side.
+Putting feelings aside, we still have a responsibility to deliver that software. It's our job at the end of the day. As software engineers, our work already demands constant adaptation. Adaptation ranges from understanding new businesses when we switch projects during our careers, to handling new requirements in the same project, to managing our pet projects on the side.
 
 ## AI changed the conversation
 
@@ -61,7 +61,7 @@ This is just the beginning of a long road.
 
 Ask the more experienced developers on your team as many questions as you need. You need to start understanding, in more depth, why certain decisions are made. For example: [why did we use a message broker, or even, why didn't we use a message broker?](https://tiger4589.github.io/2026/09/24/when-to-use-a-message-broker.html)
 
-Continuously asking questioning and learning from the answers will help you grow into a more experienced developer.
+Continuously asking questions and learning from the answers will help you grow into a more experienced developer.
 
 ### Avoid this pitfall
 
@@ -73,7 +73,7 @@ The key balance is not avoiding AI-generated solutions. It's making sure that, a
 
 You should already be able to deliver features independently, troubleshoot problems, and write maintainable code.
 
-If your team increasingly relies on AI for implementation, take ownership of the technical decisions, constraints, and validation that ensure the resulting software is reliable. Given the experience you've already built up, it should be easier to work alongside these tools and make the right decisions. Don't get complacent though - this doesn't mean you should rely only on AI tools from now on. Learning never ends. Gain more experience, especially in architecture and system design. Here's a fun experience that you can try: take an existing service in your codebase, map its dependencies, and ask a senior engineer about the decisions behind the current architecture. Then use AI to explore alternatives and compare those suggestions against your actual requirements.
+If your team increasingly relies on AI for implementation, take ownership of the technical decisions, constraints, and validation that ensure the resulting software is reliable. Given the experience you've already built up, it should be easier to work alongside these tools and make the right decisions. Don't get complacent though - this doesn't mean you should rely only on AI tools from now on. Learning never ends. Gain more experience, especially in architecture and system design. Here's a fun experiment that you can try: take an existing service in your codebase, map its dependencies, and ask a senior engineer about the decisions behind the current architecture. Then use AI to explore alternatives and compare those suggestions against your actual requirements.
 
 And regardless of whether you're currently working with AI or not, it's the perfect time to start handling more complex problems, try making architectural decisions alongside your senior colleagues, and learn from those decisions.
 
@@ -109,13 +109,13 @@ The tools and workflows may change even though accountability remains.
 
 # How do you preserve your engineering skills?
 
-Professionally: you can review generated code while waiting for other sessions to finish, discuss it with colleagues, and examine the architecture. If you run into a bug, use your debugging skills rather than immediately delegating the problem to another agent. Consider maintaining independent tests that the AI agent cannot modify, so it cannot change both the implementation and the tests to make them pass. These tests still need to reflect the actual requirements. Being able to explain the system you've built with AI is a good recipe.
+Professionally: you can review generated code while waiting for other sessions to finish, discuss it with colleagues, and examine the architecture. If you run into a bug, use your debugging skills rather than immediately delegating the problem to another agent. Consider maintaining independent tests that the AI agent cannot modify, so it cannot change both the implementation and the tests to make them pass. These tests still need to reflect the actual requirements. If you can’t explain the system you’ve built with AI, you don’t really own it yet.
 
 Personally: keep some pet projects around - toying with them is fun. I love writing code, and when working on fun projects for myself, I still prefer to write as much as I can manually. Once I am happy with the initial architecture and design, I might delegate the work to the AI, instructing it to follow in my footsteps. This keeps me practiced at reading the code and following it through.
 
 ## Learning loop
 
-Learning doesn't stop. I always give the example that we keep learning how to use our hands on a daily basis. Coding is a practice, just like anything else in the world.
+Learning doesn't stop. Coding is a practice, just like anything else in the world.
 
 I personally like reading blogs and technical documentation, and watching videos if I want a quicker overview. I wouldn't advise ditching this and using only AI to learn. Remember that AI tools vary in how they access current information. Their knowledge may be outdated or incomplete, and even tools with web access can misinterpret sources.
 
@@ -134,7 +134,7 @@ Learning something new is always nice and fun, but ask yourself: does it solve a
 
 # What does experience mean?
 
-When AI does most of the implementations, what does experience mean? It isn't simply the ability to write code. It includes recognizing bad abstractions, choosing the appropriate trade-offs, understanding the consequences of decisions.
+When AI does most of the implementation, what does experience mean? It isn't simply the ability to write code. It includes recognizing bad abstractions, choosing the appropriate trade-offs, and understanding the consequences of decisions.
 
 Applying the KISS (Keep it simple, stupid) and YAGNI (You aren't gonna need it) principles is still important. If your AI agent is building abstractions on top of abstractions that you know you wouldn't need, it's better to stop it. This will make the system you're building easier to understand.
 
