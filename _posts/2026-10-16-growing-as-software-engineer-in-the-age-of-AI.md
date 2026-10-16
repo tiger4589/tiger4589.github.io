@@ -69,7 +69,7 @@ If you consistently delegate work you don't understand to AI, you risk losing op
 
 The key balance is not avoiding AI-generated solutions. It's making sure that, as a developer, you can explain, test, and take responsibility for the solution.
 
-## Mid-Level Developers
+## Mid-level developers
 
 You should already be able to deliver features independently, troubleshoot problems, and write maintainable code.
 
@@ -109,7 +109,7 @@ The tools and workflows may change even though accountability remains.
 
 # How do you preserve your engineering skills?
 
-Professionally: you can review generated code while waiting for other sessions to finish, discuss it with colleagues, and examine the architecture. If you run into a bug, use your debugging skills rather than immediately delegating the problem to another agent. Consider maintaining independent tests that the AI agent cannot modify, so it cannot change both the implementation and the tests to make them pass. These tests still need to reflect the actual requirements. If you can’t explain the system you’ve built with AI, you don’t really own it yet.
+Professionally: you can review generated code while waiting for other sessions to finish, discuss it with colleagues, and examine the architecture. If you run into a bug, use your debugging skills rather than immediately delegating the problem to another agent. Consider maintaining independent tests that the AI agent cannot modify, so it cannot change both the implementation and the tests to make them pass. These tests still need to reflect the actual requirements. If you can't explain the system you've built with AI, you don't really own it yet.
 
 Personally: keep some pet projects around - toying with them is fun. I love writing code, and when working on fun projects for myself, I still prefer to write as much as I can manually. Once I am happy with the initial architecture and design, I might delegate the work to the AI, instructing it to follow in my footsteps. This keeps me practiced at reading the code and following it through.
 
