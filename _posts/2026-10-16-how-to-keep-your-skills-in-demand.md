@@ -7,7 +7,7 @@ tags:
 
 Software development has always been evolving, for as long as I can remember. It evolves constantly, and it follows trends. These trends are usually for the better, and sometimes they don't survive the test of time and get left behind.
 
-Currently, it's all about artificial intelligence (AI), agentic development, and everything related. But how should we keep our skills in demand? What does that mean for someone just starting his career? How should people who has been in this field for a long time move forward?
+Currently, it's all about artificial intelligence (AI), agentic development, and everything related. But how should we keep our skills in demand? What does that mean for someone just starting his career? How should people who have been in this field for a long time move forward?
 
 The following article is my personal take on that matter. I'll share my honest feeling and how I think we should move forward.
 
@@ -65,7 +65,7 @@ This continuous questioning and learning will slowly pave your path to becoming 
 
 ### Avoid this pitfall
 
-If, as a developer, you keep delegating tasks that you don't understand to AI, you might become less capable of detecting incorrect output, debugging behavior, or making good decisions when the tools fail.
+If you keep delegating tasks that you don't understand to AI, you might become less capable of detecting incorrect output, debugging behavior, or making good decisions when the tools fail.
 
 The key balance is not avoiding AI-generated solutions. It's making sure that, as a developer, you can explain, test, and take responsibility for the solution.
 
@@ -89,7 +89,7 @@ If you haven't used these tools yet, go ahead - don't fall behind. Trust, but ve
 
 ### Responsibilities
 
-Your responsibilities remains the same, even when adopting AI.
+Your responsibilities remain the same, even when adopting AI.
 
 You still have to:
 
@@ -154,4 +154,4 @@ I personally don't like getting too involved in front-end development, and I fin
 
 Does AI mean giving up the satisfaction of creating something? Or does it mean finding satisfaction in different things, like understanding a complex system or delivering something that would have previously taken months? I will let you answer those questions alone.
 
-A mentor of mine wrote an article seven years ago, [The day when the software industry makes up its mind](https://adamtibi.com/archives/the-day-when-the-software-industry-makes-its-mind), and it still holds true today. The only difference is that the pace of change is much faster these days, and adapting is more demanding than ever, but it is necessary. Don't avoid what's inevitable, but treat it carefully and with open mind. Remember, at the end of the day, you're still responsible for what you're delivering, whether an AI wrote it or you did.
+A mentor of mine wrote an article seven years ago, [The day when the software industry makes up its mind](https://adamtibi.com/archives/the-day-when-the-software-industry-makes-its-mind), and it still holds true today. The only difference is that the pace of change is much faster these days, and adapting is more demanding than ever, but it is necessary. Don't avoid what's inevitable, but treat it carefully and with an open mind. Remember, at the end of the day, you're still responsible for what you're delivering, whether an AI wrote it or you did.
