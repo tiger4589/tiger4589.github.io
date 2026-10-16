@@ -29,7 +29,7 @@ Putting feeling aside, we still have a responsibility to deliver that software. 
 
 I've seen a lot of discussions and posts about what AI can do, and how it will replace software developers. I've also seen people skeptical about the whole thing, and are pretty sure that the bubble will burst soon. However, given the pace that AI is evolving in, and the level it is at the moment, I believe the truth lives between these two groups of people:
 
-**AI isn't going anywhere, and software developers will have to adapt.**
+**AI is probably here to stay, and software developers will have to adapt.**
 
 Yes, one person can now migrate small to huge applications alone, from one language to another, from a legacy code to a modern one, but understanding what is being delivered is still critical. Developers must verify behavior through tests, review security implications, understand operational risks, and check whether the solution meets the actual requirements or not. The future is never certain, we can predict AI replacing developers, or the opposite, but that doesn't do us any good.
 
@@ -87,13 +87,25 @@ Don't be afraid to adapt. AI make executing ideas and building software much eas
 
 If you haven't used these tools yet, go ahead, don't fall behind. Trust, but verify!
 
-### How do you preserve your engineering skills?
+### Responsibilities
+
+Your responsibilities remains the same, even when adopting AI.
+
+You still have to:
+
+- Define the requirements
+- Set architectural constraints
+- Establish acceptance criteria
+- Review system-level changes
+- Mentor less experienced developers
+
+# How do you preserve your engineering skills?
 
 Professionally: you can review generated code while waiting for some new sessions to end, discuss it with colleagues, and examine the architecture. If met with a bug, use your debugging skills before immediately delegating the problem to another agent. Write some tests that are off-limit for the AI and that they must be green. Being able to explain the system you've built with the AI is a good recipe.
 
 Personally: keep some pet projects around you, toying with them is fun. I love to write code, and while working on fun projects for myself, I still prefer to write as much as I can manually. Once I am happy with the initial architecture and design, I might delegate the work to the AI, instructing it to follow in my footsteps. This keeps me trained on reading the code and being able to follow it through.
 
-## For everyone
+## Learning loop
 
 Learning doesn't stop. I always give an example that we learn how to use our hands on a daily basis. Coding is a practice, just like anything else in the world.
 
