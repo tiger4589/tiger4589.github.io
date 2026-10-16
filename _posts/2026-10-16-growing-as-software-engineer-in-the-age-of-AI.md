@@ -2,7 +2,7 @@
 layout: post
 title: "Growing as a Software Engineer in the Age of AI"
 date: 2026-10-16
-tags: AI, Software Development, Career, Software Engineering, Continuous Learning, Developer Productivity
+tags: ai software-development career software-engineering continuous-learning developer-productivity
 ---
 
 Software development has been evolving for as long as I can remember, and it follows trends. Some trends improve the way we build software, while others don't stand the test of time and eventually fade away.
