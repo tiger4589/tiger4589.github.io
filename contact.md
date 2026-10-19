@@ -22,6 +22,8 @@ Feel free to reach out to me on my socials:
 </ul>
 {% endif %}
 
+You're also welcome to join the [Discord community]({{ site.discord_invite }}){:target="_blank" rel="noopener noreferrer"} and chat with me and other developers.
+
 If email is your preferred method of communication, you can reach me at:
 
 {% if site.emails %}
@@ -99,3 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 {% endif %}
+
+<!-- Support me?
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="paulkaram" data-color="#b5e853" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00" ></script> -->

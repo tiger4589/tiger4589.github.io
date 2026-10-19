@@ -48,6 +48,11 @@ social_links:
   - name: Bluesky
     url: https://bsky.app/profile/tiger4589.github.io
     icon: bluesky
+  - name: Discord
+    url: https://discord.gg/seKjpEdJrP
+    icon: discord
+
+discord_invite: https://discord.gg/seKjpEdJrP
 
 emails:
   - name: Personal Email

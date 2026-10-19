@@ -29,4 +29,8 @@ Writing is also a great way to organize my own thoughts, challenge my understand
 
 Whether you're just starting your journey with .NET or you've been building software for years, I hope you'll find something useful here.
 
+## Join the Community
+
+Reading is only half of the learning. I also run a [Discord community]({{ site.discord_invite }}){:target="\_blank" rel="noopener noreferrer"} where developers ask questions, share what they're building, and discuss .NET, architecture, and everything in between. Whether you're just starting out or have years of experience, you're welcome to join the conversation.
+
 Thanks for stopping by, and happy coding!

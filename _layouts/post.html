@@ -12,3 +12,12 @@ layout: default
 {% if page.tags %}
 <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
 {% endif %}
+
+{% if site.discord_invite %}
+<div class="post-tags-divider" aria-hidden="true"></div>
+
+<p>
+  <strong>Enjoyed this post?</strong> Come hang out with other developers in the community on Discord to ask questions, share ideas, and discuss .NET and software engineering.
+  <a href="{{ site.discord_invite }}" target="_blank" rel="noopener noreferrer">Join the Discord server</a>.
+</p>
+{% endif %}
