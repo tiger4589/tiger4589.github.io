@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Options Pattern in ASP.NET Core: Typed, Validated Configuration"
-date: 2026-10-21
+date: 2026-10-23
 tags: dotnet aspnetcore csharp configuration options-pattern validation
 ---
 
